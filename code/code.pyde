@@ -1,4 +1,4 @@
-add_library('minim')
+from ddf.minim import Minim
 import os
 import random
 import time
@@ -172,10 +172,10 @@ class Game():
         self.img_background = loadImage(path + "/images/" + "background.png")
         self.game_won = loadImage(path + "/images/" + "game_won.png")
         self.heart = loadImage(path + "/images/" + "heart.png")
-        self.bg_sound = player_1.loadFile(path + "/sounds/unused.mp3")
+        # self.bg_sound = player_1.loadFile(path + "/sounds/unused.mp3")
         self.game_over_sound = player_1.loadFile(path +
                                                  "/sounds/game_over.mp3")
-        self.bg_sound.loop()
+        # self.bg_sound.loop()
         self.score = 0
         self.player_shoots = player_1.loadFile(path +
                                                "/sounds/player_bullet.mp3")
@@ -373,7 +373,7 @@ class Game():
 # displaying the game winning display
                       
             if self.game_over == True:
-                self.bg_sound.close()
+                # self.bg_sound.close()
                 self.winner.rewind()
                 self.winner.play()
                 self.game = True
@@ -415,7 +415,7 @@ class Game():
                         enemy.x, enemy.y, self.player.x, self.player.y
                 ) <= self.player.r + 10 or self.live == True:
                     self.game = True
-                    self.bg_sound.close()
+                    # self.bg_sound.close()
 
                     self.game_over_sound.rewind()
                     self.game_over_sound.play()
@@ -468,7 +468,7 @@ def draw():
         game.live_taken.close()
         game.winner.close()
         game.winner.close()
-        game.bg_sound.close()
+        # game.bg_sound.close()
         game = Game(800, 800, 585)
         game.display()
 
